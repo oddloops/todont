@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { nanoid } from "nanoid";
 import Form from "./components/Form";
 import FilterButton from "./components/FilterButton";
 import Todo from "./components/Todo";
@@ -16,8 +17,8 @@ function App(props) {
   ));
 
   function addTask(name) {
-    const newTask = { id:"id", name, completed: false};
-    setTasks([...tasks, newTask]);
+    const newTask = { id: `todo-${nanoid()}`, name, completed: false};
+    setTasks([newTask, ...tasks]);
   }
 
   return (
@@ -30,9 +31,9 @@ function App(props) {
         <FilterButton />
       </div>
       <h2 id="list-heading">3 tasks remaining</h2>
-      <u1 role="list" className="todo-list stack-large stack-exception" aria-labelledby="list-heading">
+      <ul className="todo-list stack-large stack-exception" aria-labelledby="list-heading">
         {taskList}
-      </u1>
+      </ul>
     </div>
   );
 }
