@@ -54,7 +54,6 @@ function App(props) {
     setTasks(editedTaskList);
   }
 
-
   const taskList = tasks
   .filter(FILTER_MAP[filter])
   .map((task) => (
